@@ -1,0 +1,30 @@
+.head-comp{
+    margin: 5px;
+}
+.head-comp h2{
+    display: block;
+    font-weight: 700;
+    margin-left: 5px;
+}
+.head-comp Button{
+    margin: 5px;
+}
+.info-main{
+    margin: 10px;
+}
+.info-main div p{
+    margin: 0px;
+    padding: 0;
+    font-size: 12px;
+}
+.info-main div {
+    float:left;
+}
+.info-main_input{
+    padding: 5px;
+    display: inline-block;
+}
+.info-main_left, .info-main_right{
+    width:49%;
+    float: left;
+}
