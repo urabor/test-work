@@ -27,4 +27,18 @@
 .info-main_left, .info-main_right{
     width:49%;
     float: left;
+    display: block;
+}
+.info-main_elem-full{
+    width: 98%;
+}
+.info-main_elem-half{
+    width: 48.5%;
+    margin-right: 5px;
+}
+.info-main_elem-full, .info-main_elem-half{
+    margin-left: 0;
+}
+.info-main_elem-half div{
+    width: 100%;
 }

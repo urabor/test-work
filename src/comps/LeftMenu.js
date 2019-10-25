@@ -9,7 +9,7 @@ const {  Sider } = Layout;
 class LeftMenu extends React.Component{
 
   state= {
-    collapsed: false,
+    collapsed: true,
   }
   
      toggleCollapsed = () => {
