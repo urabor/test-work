@@ -36,41 +36,20 @@ class LeftMenu extends React.Component{
           inlineCollapsed={this.state.collapsed}
           >
 
-            <SubMenu
+            <Menu.Item
                 key="sub1"
-                title={
-                  <span>
-                    <Icon type="search" />
-                    <span>Navigation One</span>
-                  </span>
-                }
-              >
-                <Menu.Item key="1">Option 1</Menu.Item>
-                  <Menu.Item key="2">Option 2</Menu.Item>
-              </SubMenu>
-              <SubMenu
+                
+              ><Icon type="search" />
+              </Menu.Item>
+              <Menu.Item
                 key="sub2"
-                title={
-                  <span>
-                    <Icon type="upload" />
-                    <span>Navigation One</span>
-                  </span>
-                }
-              >
-              </SubMenu>
+              ><Icon type="upload" />
+              </Menu.Item>
 
-              <SubMenu
+              <Menu.Item
                 key="sub3"
-                title={
-                  <span>
-                    <Icon type="unordered-list" />
-                    <span>Navigation One</span>
-                  </span>
-                }
-              >
-                <Menu.Item key="7">Option 7</Menu.Item>
-                  <Menu.Item key="8">Option 8</Menu.Item>
-              </SubMenu>
+              > <Icon type="unordered-list" />
+              </Menu.Item>
 
               <Menu.Item key="sub4">
                 <Icon type="file" />
