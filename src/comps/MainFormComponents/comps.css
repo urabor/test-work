@@ -1,17 +1,20 @@
-.head-comp{
+/* .head-comp{
     margin: 5px;
+} */
+
+.layout-main h3{
+    padding-top: 20px;
 }
 .head-comp h2{
     display: block;
     font-weight: 700;
-    margin-left: 5px;
 }
 .head-comp Button{
-    margin: 5px;
+    margin-right: 15px;
 }
-.info-main{
+/* .info-main{
     margin: 10px;
-}
+} */
 .info-main div p{
     margin: 0px;
     padding: 0;
@@ -34,11 +37,20 @@
 }
 .info-main_elem-half{
     width: 48.5%;
-    margin-right: 5px;
+    margin-right: 8px;
 }
 .info-main_elem-full, .info-main_elem-half{
     margin-left: 0;
 }
 .info-main_elem-half div{
     width: 100%;
+}
+.ant-select-selection--single{
+    width: 100%;
+}
+.layout-main{
+    margin-left: 15px;
+}
+.ant-table-tbody td{
+    position: relative;
 }

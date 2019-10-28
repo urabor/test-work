@@ -13,7 +13,7 @@ import { Menu, Icon, Button } from 'antd';
 function MainForm() {
 
     return(
-        <Layout>
+        <Layout className='layout-main'>
             <MFHead />
             <MFInputInfo />
             <MFTablePlace />

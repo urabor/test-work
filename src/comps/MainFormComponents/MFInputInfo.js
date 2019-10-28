@@ -9,9 +9,9 @@ function Info(){
     const InputGroup = Input.Group;
     return(
         <div className='info-main'>
-            <h3>Общие сведения</h3>
+            <h3 >Общие сведения</h3>
 
-        {/* <div className='info-main_left'> */}
+        {/* <div size ='49%' className='info-main_left'> */}
         <InputGroup size ='49%' className='info-main_left'>
             <div className='info-main_elem-half'>
                 <p >Дата акта</p>
@@ -25,14 +25,13 @@ function Info(){
 
             <div className='info-main_elem-full'>
                 <p>Лесничество</p>
-                {/* <Select className='info-main_input' style={{ width: "200px" }}> */}
-                <Cascader style={{width: "100%"}} placeholder=''
-                    option="первое"
-                    option="второе"
-                />
-                {/* </Select> */}
-                </div>
-            </InputGroup>
+                <Select style={{width: "100%"}} placeholder='' >
+                    <Option value="Лебединское">Лебединское</Option>
+                    <Option value="Гусинское">Гусинское</Option>
+                </Select>
+            </div>
+        </InputGroup>
+            {/* </div> */}
        
             
 
