@@ -52,10 +52,10 @@ class TablePlace extends React.Component {
                 dataIndex: 'tools',
                 render: (text, record ) => (
                     <span style={{position: 'absolute', right: '20%'}}>
-                      <a href="" style={{padding: '8px'}} onClick={this.addRow} >
+                      <a  style={{padding: '8px'}} onClick={this.addRow} >
                            <Icon type="plus" />
                            </a>
-                      <a href="" ><Popconfirm title="Sure to delete?" onConfirm={() =>  this.deleteRow(record.key)} >
+                      <a  ><Popconfirm title="Sure to delete?" onConfirm={() =>  this.deleteRow(record.key)} >
                           
                           <Icon type="delete" /></Popconfirm>
                       </a>

@@ -54,3 +54,39 @@
 .ant-table-tbody td{
     position: relative;
 }
+.coord-head-left Button{
+    float:left;
+}
+.coord-head-left{
+    overflow: auto;
+}
+.coord-panel{
+    width: 100%;
+}
+.coord-drager{
+    display: inline-block;
+    height: 76%;
+}
+.coord-elem{
+    width: 48%;
+    /* height: 250px; */
+    float: left;
+    margin-left: 5px;
+    height: 300px;
+}
+.coord-result{
+    border: 1px #919191 solid;
+    width: 98%;
+    height: 76%;
+    background-color: #e6e6e6;
+    vertical-align: middle;
+}
+.coord-result>p{
+    display: inline;
+    text-align: center;
+    font-size: 18px;
+}
+.coord-head-left>p{
+    display: block;
+    float: left;
+}
