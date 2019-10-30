@@ -110,14 +110,14 @@ class TableCoord extends React.Component{
                   {
                   key: '1',
                   num: 1,
-                  shirota: 33.5,
+                  shirota: 555,
                   dolgota: 32,
                   tools: ''
                   },
                   {
                     key: '2',
                     num: 2,
-                    shirota: 33.5,
+                    shirota: 666,
                     dolgota: 32,
                     tools: ''
                     },
@@ -160,34 +160,52 @@ class TableCoord extends React.Component{
 
     handleClick = e => {
         
-        // this.setState({
-        //   current: e.key,
-        // });
-        this.current = e.key;
-        // console.log(this.dataRef)
+        this.setState({
+          current: e.key,
+        });
+
+        this.setState({
+          colomnRef: this.columns1,
+        });
+        this.setState({
+          dataRef: this.state1.data,
+        });
+
+        console.log(this.columns)
+
+        // this.current = e.key;
+
+        // console.log( this.current);
+        // console.log( this.current=='gg')
       };
     render(){
         let colomnRef;
         let dataRef;
-        let dataR= ()=>{
-        if(this.current==='gg'){
-            this.colomnRef=this.columns1;
-            this.dataRef=this.state1.data;
-            console.log(this.colomnRef)
-        }
-        else if(this.current==='mm'){
-            this.colomnRef=this.columns2;
-            this.dataRef=this.state2.data;
-        }
-        else if(this.current==='az'){
+        
+        if(this.current=='gg'){
+          // this.setState({
+          //   colomnRef: this.columns1,
+          // });
+          // this.setState({
+          //   dataRef: this.state1.data,
+          // });
             colomnRef=this.columns1;
             dataRef=this.state1.data;
+            // console.log(colomnRef)
         }
-        else if(this.current==='rum'){
+        else if(this.current=='mm'){
             colomnRef=this.columns2;
             dataRef=this.state2.data;
         }
-    };
+        else if(this.current=='az'){
+            colomnRef=this.columns1;
+            dataRef=this.state1.data;
+        }
+        else if(this.current=='rum'){
+            colomnRef=this.columns2;
+            dataRef=this.state2.data;
+        }
+ 
 
         const columns = colomnRef.map(col => {
                 if (!col.editable) {
@@ -221,7 +239,7 @@ class TableCoord extends React.Component{
         //   });
     return(
         <div>
-            <Menu onClick={this.handleClick, this.dataR} selectedKeys={[this.current]} mode='horizontal'>
+            <Menu onClick={this.handleClick} selectedKeys={[this.current]} mode='horizontal'>
                 <Menu.Item key='gg'>ГГ, ГГГГГ</Menu.Item>
                 <Menu.Item key='mm'>ГГ ММ СС.с</Menu.Item>
                 <Menu.Item key='az'>Азимуты</Menu.Item>
