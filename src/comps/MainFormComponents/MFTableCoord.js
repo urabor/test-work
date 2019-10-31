@@ -5,8 +5,10 @@ import { Menu, Icon, Button, Table, Select, Popconfirm } from 'antd';
 const { Option } = Select;
 
 class TableCoord extends React.Component{
-    constructor(props){
+  
+  constructor(props){
         super(props);
+        
         this.columns1 = [
             
             {
@@ -132,8 +134,14 @@ class TableCoord extends React.Component{
               }`
             ,
       };
-      this.current= 'gg';
+      this.state={
+        current: 'gg',
+        colomnRef: this.columns1,
+        dataRef: this.state1.data,        
+      };
+     console.log(this.state.colomnRef);
     }
+        
       deleteRow = key =>{
         const dataSource = [...this.state.data];
         
@@ -160,54 +168,94 @@ class TableCoord extends React.Component{
 
     handleClick = e => {
         
+      // this.state.current= e.key;
         this.setState({
-          current: e.key,
-        });
+          current: e.key});
+          // () => { this.setState ({current: e.key,})});
+        
+        console.log(this.state.current);
 
-        this.setState({
-          colomnRef: this.columns1,
-        });
-        this.setState({
-          dataRef: this.state1.data,
-        });
+        if(this.state.current=='gg'){
 
-        console.log(this.columns)
+          this.setState((columns1,state)=>({
+            columns1,
+            colomnRef: columns1,
+          }));
+          
+          this.setState((state1)=>({
+            state1,
+            dataRef: state1.data,
+          }));
+            // this.state.colomnRef=this.columns1;
+            // this.state.dataRef=this.state1.data;
+            console.log(this.state.colomnRef)
+        }
+        else if(this.state.current=='mm'){
+
+          this.setState((columns2)=>({
+            columns2,
+            colomnRef: this.columns2
+          }));
+          
+          this.setState((state2)=>({
+            state2,
+            dataRef: state2.data
+          }));
+
+
+
+
+          // this.setState({
+          //   colomnRef: this.columns1,
+          // });
+          // console.log(this.colomnRef)
+          // this.setState({
+          //   dataRef: this.state1.data,
+          // });
+          // this.state.colomnRef=this.columns2;
+          // this.state.dataRef=this.state2.data;
+          console.log(this.state.colomnRef)
+        }
+      
+        
 
         // this.current = e.key;
 
         // console.log( this.current);
         // console.log( this.current=='gg')
       };
+
+
     render(){
-        let colomnRef;
-        let dataRef;
         
-        if(this.current=='gg'){
-          // this.setState({
-          //   colomnRef: this.columns1,
-          // });
-          // this.setState({
-          //   dataRef: this.state1.data,
-          // });
-            colomnRef=this.columns1;
-            dataRef=this.state1.data;
-            // console.log(colomnRef)
-        }
-        else if(this.current=='mm'){
-            colomnRef=this.columns2;
-            dataRef=this.state2.data;
-        }
-        else if(this.current=='az'){
-            colomnRef=this.columns1;
-            dataRef=this.state1.data;
-        }
-        else if(this.current=='rum'){
-            colomnRef=this.columns2;
-            dataRef=this.state2.data;
-        }
+        let columnsR = this.state.colomnRef;
+        let dataR = this.state.dataRef;
+        // if(this.current=='gg'){
+        //   // this.setState({
+        //   //   colomnRef: this.columns1,
+        //   // });
+        //   // this.setState({
+        //   //   dataRef: this.state1.data,
+        //   // });
+        //     colomnRef=this.columns1;
+        //     dataRef=this.state1.data;
+        //     // console.log(colomnRef)
+        // }
+        // else if(this.current=='mm'){
+        //     colomnRef=this.columns2;
+        //     dataRef=this.state2.data;
+        // }
+        // else if(this.current=='az'){
+        //     colomnRef=this.columns1;
+        //     dataRef=this.state1.data;
+        // }
+        // else if(this.current=='rum'){
+        //     colomnRef=this.columns2;
+        //     dataRef=this.state2.data;
+        // }
  
 
-        const columns = colomnRef.map(col => {
+        const columns = columnsR.map(col => {
                 if (!col.editable) {
                   return col;
                 }
@@ -245,7 +293,7 @@ class TableCoord extends React.Component{
                 <Menu.Item key='az'>Азимуты</Menu.Item>
                 <Menu.Item key='rum'>Румбы</Menu.Item>
             </Menu>
-            <Table  columns={columns} dataSource={dataRef} pagination={false} bordered={true} size={'small'}>
+            <Table  columns={columns} dataSource={dataR} pagination={false} bordered={true} size={'small'}>
 
             </Table>
             <Button
