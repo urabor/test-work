@@ -110,6 +110,7 @@ class TablePlace extends React.Component {
         };
             this.setState({  data: [...data, newData],
             count: count+1,  }   );
+            console.log(data);
     };
     
         

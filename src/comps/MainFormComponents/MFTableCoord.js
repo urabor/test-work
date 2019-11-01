@@ -139,7 +139,6 @@ class TableCoord extends React.Component{
         colomnRef: this.columns1,
         dataRef: this.state1.data,        
       };
-     console.log(this.state.colomnRef);
     }
         
       deleteRow = key =>{
@@ -150,79 +149,73 @@ class TableCoord extends React.Component{
         
     };
     addRow =() => { 
-        let i = 1; let state;
-        if(this.current=='gg'){
-            i=1; state = this.state1;
+        // let i = 1;
+         let newState;
+        if(this.state.current=='gg'){
+          const {data, count, newData} = this.state1;
+          // const newData = Object.assign({},this.state1.newData);
+          // console.log(newData)
+          this.setState({   data: [...data, newData],
+            count: count+1,}, ()=>console.log(this.state1)
+          );
+          console.log(this.state1)
+          // console.log(this.state1.newData)
         }
-        if(this.current=='mm'){
-            i=2; state = this.state2;
+        if(this.state.current=='mm'){
+          newState = this.state2;
         }
-        const {count, data}= state;
+        // const {count, data}= newState;
         
         // const newData = Object.assign({},this[`state${i}`].newData);
-        const newData = Object.assign({},state.newData);
-            this.setState({  data: [...data, newData],
-            count: count+1,  }   );
+        // const newData = Object.assign({},newState.newData);
+
+            // this.setState({ data: [...data, newState.newData],
+            // count: newState.count+1, 
+            // });
+        // console.log(newState);
     };
 
 
     handleClick = e => {
-        
-      // this.state.current= e.key;
-        this.setState({
-          current: e.key});
-          // () => { this.setState ({current: e.key,})});
-        
-        console.log(this.state.current);
+      this.state.current= e.key;
+      // console.log(this.state.current)
 
         if(this.state.current=='gg'){
-
-          this.setState((columns1,state)=>({
-            columns1,
-            colomnRef: columns1,
-          }));
-          
-          this.setState((state1)=>({
-            state1,
-            dataRef: state1.data,
-          }));
-            // this.state.colomnRef=this.columns1;
-            // this.state.dataRef=this.state1.data;
-            console.log(this.state.colomnRef)
+          this.setState({
+            colomnRef: this.columns1
+          });
+          this.setState({
+             dataRef: this.state1.data
+          });
         }
+
         else if(this.state.current=='mm'){
-
-          this.setState((columns2)=>({
-            columns2,
+          this.setState({
             colomnRef: this.columns2
-          }));
-          
-          this.setState((state2)=>({
-            state2,
-            dataRef: state2.data
-          }));
-
-
-
-
-          // this.setState({
-          //   colomnRef: this.columns1,
-          // });
-          // console.log(this.colomnRef)
-          // this.setState({
-          //   dataRef: this.state1.data,
-          // });
-          // this.state.colomnRef=this.columns2;
-          // this.state.dataRef=this.state2.data;
-          console.log(this.state.colomnRef)
+          });
+          this.setState({
+             dataRef: this.state2.data
+          });
         }
-      
-        
 
-        // this.current = e.key;
+        else if(this.state.current=='az'){
+          this.setState({
+            colomnRef: this.columns2
+          });
+          this.setState({
+             dataRef: this.state2.data
+          });
+        }
 
-        // console.log( this.current);
-        // console.log( this.current=='gg')
+        else if(this.state.current=='rum'){
+          this.setState({
+            colomnRef: this.columns2
+          });
+          this.setState({
+             dataRef: this.state2.data
+          });
+        }
+
       };
 
 
@@ -230,31 +223,6 @@ class TableCoord extends React.Component{
         
         let columnsR = this.state.colomnRef;
         let dataR = this.state.dataRef;
-        // if(this.current=='gg'){
-        //   // this.setState({
-        //   //   colomnRef: this.columns1,
-        //   // });
-        //   // this.setState({
-        //   //   dataRef: this.state1.data,
-        //   // });
-        //     colomnRef=this.columns1;
-        //     dataRef=this.state1.data;
-        //     // console.log(colomnRef)
-        // }
-        // else if(this.current=='mm'){
-        //     colomnRef=this.columns2;
-        //     dataRef=this.state2.data;
-        // }
-        // else if(this.current=='az'){
-        //     colomnRef=this.columns1;
-        //     dataRef=this.state1.data;
-        // }
-        // else if(this.current=='rum'){
-        //     colomnRef=this.columns2;
-        //     dataRef=this.state2.data;
-        // }
- 
-
         const columns = columnsR.map(col => {
                 if (!col.editable) {
                   return col;
@@ -269,22 +237,6 @@ class TableCoord extends React.Component{
                   })
                 };
               });
-      
-
-        //  columns = this.columns.map(col => {
-        //     if (!col.editable) {
-        //       return col;
-        //     }
-        //     return {
-        //       ...col,
-        //       onCell: record => ({
-        //         record,
-        //         editable: col.editable,
-        //         dataIndex: col.dataIndex,
-        //         title: col.title,
-        //       })
-        //     };
-        //   });
     return(
         <div>
             <Menu onClick={this.handleClick} selectedKeys={[this.current]} mode='horizontal'>
