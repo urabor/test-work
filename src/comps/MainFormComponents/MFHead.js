@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Menu, Icon, Button } from 'antd';
+import { Button } from 'antd';
 import './comps.css'
 
 function Head(){

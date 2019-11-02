@@ -79,7 +79,7 @@ class TableCoord extends React.Component{
               data:
               [
                   {
-                  key: '1',
+                  key: 0,
                   num: 1,
                   shirota: 33.5,
                   dolgota: 32,
@@ -87,7 +87,7 @@ class TableCoord extends React.Component{
                   tools: ''
                   },
                   {
-                    key: '2',
+                    key: 1,
                     num: 2,
                     shirota: 33.5,
                     dolgota: 32,
@@ -96,28 +96,21 @@ class TableCoord extends React.Component{
                     },
               ],
               count:2,
-              newData: {
-                key: 9,
-                num: 0,
-                shirota: 33.5,
-                dolgota: 32,
-                flex: '',
-                tools: ''
-              },
+             
       };
       this.state2 = 
           {
               data:
               [
                   {
-                  key: '1',
+                  key: 0,
                   num: 1,
                   shirota: 555,
                   dolgota: 32,
                   tools: ''
                   },
                   {
-                    key: '2',
+                    key: 1,
                     num: 2,
                     shirota: 666,
                     dolgota: 32,
@@ -137,7 +130,15 @@ class TableCoord extends React.Component{
       this.state={
         current: 'gg',
         colomnRef: this.columns1,
-        dataRef: this.state1.data,        
+        dataRef: this.state1.data,  
+        newData: {
+          key: 0,
+          num: 0,
+          shirota: 33.5,
+          dolgota: 32,
+          flex: '',
+          tools: ''
+        },      
       };
     }
         
@@ -149,21 +150,40 @@ class TableCoord extends React.Component{
         
     };
     addRow =() => { 
-        // let i = 1;
-         let newState;
+      const count = this.state1.count;
         if(this.state.current=='gg'){
-          const {data, count, newData} = this.state1;
+          // debugger;
+          console.log(this.state1);
+
+          
+          const newState = this.state1;
+          
+          this.state.newData.key=count;
+          this.state.newData.num=count+1;
+
+          
+          // console.log(newState.data)
+          newState.data.push(this.state.newData);
+          newState.count+=1;
+          
+
           // const newData = Object.assign({},this.state1.newData);
           // console.log(newData)
-          this.setState({   data: [...data, newData],
-            count: count+1,}, ()=>console.log(this.state1)
+          // this.setState({  data: [...data, newData],
+          //   count: count+1}
+          // );
+          this.state1= this.newState;
+          this.setState({ newState}
+            // ()=>{console.log(this.state1)}
           );
-          console.log(this.state1)
+          
+          // console.log(this.state1.data);
           // console.log(this.state1.newData)
         }
-        if(this.state.current=='mm'){
-          newState = this.state2;
-        }
+        // else if(this.state.current=='mm'){
+          
+        // }
+
         // const {count, data}= newState;
         
         // const newData = Object.assign({},this[`state${i}`].newData);

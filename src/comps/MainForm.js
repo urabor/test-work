@@ -8,7 +8,7 @@ import MFCoord from './MainFormComponents/MFCoord'
 import MFTableCoord from './MainFormComponents/MFTableCoord'
 import {Layout } from 'antd';
 
-import { Menu, Icon, Button } from 'antd';
+import { Button } from 'antd';
 
 function MainForm() {
 

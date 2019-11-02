@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Menu, Icon, Button, Upload } from 'antd';
+import { Icon, Button, Upload } from 'antd';
 const {Dragger} =  Upload;
 const props ={
     name: "file",

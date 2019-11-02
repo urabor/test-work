@@ -1,8 +1,8 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Table, Divider, Tag, Button, Select, Icon, Popconfirm } from 'antd';
+import { Table, Button, Select, Icon, Popconfirm } from 'antd';
 
-const { Column, ColumnGroup } = Table;
+// const { Column, ColumnGroup } = Table;
 const { Option } = Select;
 
 

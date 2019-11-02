@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { DatePicker, Input, Select, Cascader } from 'antd';
+import { DatePicker, Input, Select } from 'antd';
 import './comps.css'
 
 function Info(){
