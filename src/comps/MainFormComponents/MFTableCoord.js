@@ -10,10 +10,7 @@ class TableCoord extends React.Component{
   // constructor(props){
   //       super(props);
         
-   
-      state={
-         
-        columns1 : [            
+        columns1 = [            
           {   title:'##',
               dataIndex: 'num',    },
           {  title: 'Широта',
@@ -34,8 +31,8 @@ class TableCoord extends React.Component{
                   </span>
                 )
             },
-        ],
-        columns2 : [
+        ];
+        columns2 = [
           
           {
               title:'##',
@@ -68,9 +65,9 @@ class TableCoord extends React.Component{
                   </span>
                 )
             },
-        ],
+        ];
     
-        state1 : 
+        state1 =
         {
             data:
             [
@@ -93,8 +90,8 @@ class TableCoord extends React.Component{
             ],
             count:2,
            
-    },
-    state2 :
+    };
+    state2 =
         {
             data:
             [
@@ -114,7 +111,7 @@ class TableCoord extends React.Component{
                   },
             ],
             count:2,
-    }  ,
+    }  
       // current: 'gg',
       // colomnRef: this.state.columns1,
       // dataRef: this.state.state1.data,  
@@ -127,11 +124,11 @@ class TableCoord extends React.Component{
       //   tools: ''
       // }, 
 
-      };
-      ref ={
+      
+      state ={
         current: 'gg',
-        colomnRef: this.state.columns1,
-        dataRef: this.state.state1.data,  
+        colomnRef:  this.columns1,
+        dataRef : this.state1.data,
         newData: {
           key: 0,
           num: 0,
@@ -143,33 +140,37 @@ class TableCoord extends React.Component{
       
      };
     
-    
-        
       deleteRow = key =>{
-        const dataSource = [...this.state.data];
-        
-        console.log(key)
-        this.setState({ data: dataSource.filter(item => item.key !== key) });
+        let dataSource = [...this.state1.data];
+        dataSource = dataSource.filter(item => item.key !== key);
+        console.log( dataSource)
+        this.setState({ data: dataSource});
         
     };
     addRow =() => { 
       
-        if(this.ref.current=='gg'){
-          //  debugger;
-          let newState = this.state.state1;
+        if(this.state.current=='gg'){
+        debugger;
+          let newState = this.state1;
 
-          let newData = this.ref.newData;
-          newData.key= this.state.state1.count;
-          newData.num= this.state.state1.count+1;
+          let newData = [];
+          newData.key= this.state1.count;
+          newData.num= this.state1.count+1;
+          newData.shirota= this.state.newData.shirota;
+          newData.dolgota= this.state.newData.dolgota;
+          newData.flex= this.state.newData.flex;
+          newData.tools= this.state.newData.tools;
+          
+          newData= Object.assign({},newData);
 
           newState.count+=1;
-
+          console.log(newState)
           newState.data.push(newData);
 
          this.setState({
           state1 : newState
          })
-          console.log(newState)
+          //console.log(newState)
 
           // const newData = Object.assign({},this.state1.newData);
           // console.log(newData)
@@ -205,18 +206,26 @@ class TableCoord extends React.Component{
       this.state.current= e.key;
       // console.log(this.state.current)
 
-        if(this.ref.current=='gg'){
+        if(this.state.current=='gg'){
           
-          this.setState({colomnRef: this.state.columns1,
-            dataRef: this.state.state1.data,
-          })
+          // this.setState({colomnRef: this.state.columns1,
+          //   dataRef: this.state.state1.data,
+          // })
+          this.setState({
+            colomnRef: this.columns1
+          });
+          this.setState({
+             dataRef: this.state1.data
+          });
         }
 
-        else if(this.ref.current=='mm'){
-        
-          this.setState({colomnRef: this.state.columns2,
-            dataRef: this.state.state2.data,
-          })
+        else if(this.state.current=='mm'){
+          this.setState({
+            colomnRef: this.columns2
+          });
+          this.setState({
+             dataRef: this.state2.data
+          });
          
         }
 
@@ -243,8 +252,8 @@ class TableCoord extends React.Component{
 
     render(){
         
-        let columnsR = this.ref.colomnRef;
-        let dataR = this.ref.dataRef;
+        let columnsR = this.state.colomnRef;
+        let dataR = this.state.dataRef;
         const columns = columnsR.map(col => {
                 if (!col.editable) {
                   return col;

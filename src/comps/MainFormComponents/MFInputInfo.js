@@ -39,12 +39,12 @@ function Info(){
         <InputGroup size='49%' className='info-main_right' >
             <div>
                 <p>Субъект РФ</p>
-                <Input className='info-main_input' style={{width: '400px'}}  />
+                <Input className='info-main_input'  />
             </div>
             
             <div style={{paddingTop:'5px'}}>
                 <p>Исполнитель работ по ЛПО</p>
-                <Input style={{width: '400px'}}  />
+                <Input  />
             </div>
         </InputGroup>
     </div>

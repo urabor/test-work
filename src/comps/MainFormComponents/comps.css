@@ -1,7 +1,9 @@
 /* .head-comp{
     margin: 5px;
 } */
-
+.ant-menu-inline-collapsed{
+    width: 100%;
+}
 .layout-main h3{
     padding-top: 20px;
 }
@@ -32,11 +34,14 @@
     float: left;
     display: block;
 }
+.info-main_right>div{
+    width:100%
+}
 .info-main_elem-full{
     width: 98%;
 }
 .info-main_elem-half{
-    width: 47.5%;
+    width: 47%;
     margin-right: 8px;
 }
 .info-main_elem-full, .info-main_elem-half{
@@ -69,6 +74,10 @@
 .coord-drager{
     display: inline-block;
     height: 76%;
+}
+.form-coord-drager{
+    display: inline-block;
+    height: 1000px;
 }
 .coord-elem{
     width: 48%;

@@ -24,7 +24,7 @@ class TablePlace extends React.Component {
                 } </span>,
               },
             {
-                title:'Урочище(дача)',
+                title:'Урочище (дача)',
                 dataIndex: 'dacha',
                 width: '20%',
                 render: () =>

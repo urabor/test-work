@@ -11,10 +11,14 @@ const { Sider } = Layout;
 
 
 class App extends React.Component{
-
-  state={
+  constructor(){
+    super();
+  this.state={
     collapsed: false,
   };
+
+  //  this.docCollapsed=this.docCollapsed.bind(this);
+  }
   docCollapsed=()=>{
      this.setState({collapsed: !this.state.collapsed});
      console.log('proshlo')
@@ -25,13 +29,13 @@ class App extends React.Component{
     <Layout className='main-window'
     >
     
-       < LeftMenu 
-       />
+       < LeftMenu />
        <MainForm />
+       
        <Sider collapsed={this.state.collapsed} collapsedWidth={0} width={'50%'} 
         style={{background:'#fff'}}
         >
-                        <FormView docCollapsed={()=>this.docCollapsed}  />
+            <FormView docCollapsed={()=> this.docCollapsed.bind(this)}  />
         </Sider>
    </Layout>
   )

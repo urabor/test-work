@@ -21,8 +21,8 @@ class LeftMenu extends React.Component{
 
   render(){
   return(
-      <Sider trigger={null} collapsible collapsed={this.state.collapsed}
-      style={{float: 'left'}}
+      <Sider trigger={null} collapsible collapsed={this.state.collapsed} collapsedWidth={70}
+      style={{float: 'left'} }
       >
 
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
@@ -33,7 +33,7 @@ class LeftMenu extends React.Component{
           defaultOpenKeys={['sub1']}
           mode="inline"
           theme="dark"
-          inlineCollapsed={this.state.collapsed}
+          // inlineCollapsed={this.state.collapsed}
           >
 
             <Menu.Item
