@@ -1,136 +1,137 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Menu, Icon, Button, Table, Select, Popconfirm } from 'antd';
+import { object } from 'prop-types';
 
 const { Option } = Select;
 
 class TableCoord extends React.Component{
   
-  constructor(props){
-        super(props);
+  // constructor(props){
+  //       super(props);
         
-        this.columns1 = [
-            
-            {
-                title:'##',
-                dataIndex: 'num',
+   
+      state={
+         
+        columns1 : [            
+          {   title:'##',
+              dataIndex: 'num',    },
+          {  title: 'Широта',
+            dataIndex: 'shirota',  },
+          {  title: 'Долгота',
+              dataIndex: 'dolgota', },
+          {  title: 'Инструменты',
+              dataIndex: 'tools',
+              render: (text, record ) => (
+                  <span style={{position: 'absolute', right: '20%'}}>
+                    <a  style={{padding: '8px'}} onClick={this.addRow} >
+                         <Icon type="plus" />
+                         </a>
+                    <a  ><Popconfirm title="Sure to delete?" onConfirm={() =>  this.deleteRow(record.key)} >
+                        
+                        <Icon type="delete" /></Popconfirm>
+                    </a>
+                  </span>
+                )
             },
-            {
-              title: 'Широта',
-              dataIndex: 'shirota',
-            },
-            {
-                title: 'Долгота',
-                dataIndex: 'dolgota',
-              },
-              {
-                title: 'Инструменты',
-                dataIndex: 'tools',
-                render: (text, record ) => (
-                    <span style={{position: 'absolute', right: '20%'}}>
-                      <a  style={{padding: '8px'}} onClick={this.addRow} >
-                           <Icon type="plus" />
-                           </a>
-                      <a  ><Popconfirm title="Sure to delete?" onConfirm={() =>  this.deleteRow(record.key)} >
-                          
-                          <Icon type="delete" /></Popconfirm>
-                      </a>
-                    </span>
-                  )
-              },
-          ];
-          this.columns2 = [
-            
-            {
-                title:'##',
-                dataIndex: 'num',
-            },
-            {
-              title: 'Шир',
-              dataIndex: 'shirota',
-            },
-            {
-                title: 'Бегинс',
-                dataIndex: 'dolgota',
-              },
-              {
-                title: 'flex',
-                dataIndex: 'flex',
-              },
-              {
-                title: 'Инструменты',
-                dataIndex: 'tools',
-                render: (text, record ) => (
-                    <span style={{position: 'absolute', right: '20%'}}>
-                      <a  style={{padding: '8px'}} onClick={this.addRow} >
-                           <Icon type="plus" />
-                           </a>
-                      <a  ><Popconfirm title="Sure to delete?" onConfirm={() =>  this.deleteRow(record.key)} >
-                          
-                          <Icon type="delete" /></Popconfirm>
-                      </a>
-                    </span>
-                  )
-              },
-          ];
-      
-          this.state1 = 
+        ],
+        columns2 : [
+          
           {
-              data:
-              [
-                  {
-                  key: 0,
-                  num: 1,
+              title:'##',
+              dataIndex: 'num',
+          },
+          {
+            title: 'Шир',
+            dataIndex: 'shirota',
+          },
+          {
+              title: 'Бегинс',
+              dataIndex: 'dolgota',
+            },
+            {
+              title: 'flex',
+              dataIndex: 'flex',
+            },
+            {
+              title: 'Инструменты',
+              dataIndex: 'tools',
+              render: (text, record ) => (
+                  <span style={{position: 'absolute', right: '20%'}}>
+                    <a  style={{padding: '8px'}} onClick={this.addRow} >
+                         <Icon type="plus" />
+                         </a>
+                    <a  ><Popconfirm title="Sure to delete?" onConfirm={() =>  this.deleteRow(record.key)} >
+                        
+                        <Icon type="delete" /></Popconfirm>
+                    </a>
+                  </span>
+                )
+            },
+        ],
+    
+        state1 : 
+        {
+            data:
+            [
+                {
+                key: 0,
+                num: 1,
+                shirota: 33.5,
+                dolgota: 32,
+                flex: '',
+                tools: ''
+                },
+                {
+                  key: 1,
+                  num: 2,
                   shirota: 33.5,
                   dolgota: 32,
                   flex: '',
                   tools: ''
                   },
-                  {
-                    key: 1,
-                    num: 2,
-                    shirota: 33.5,
-                    dolgota: 32,
-                    flex: '',
-                    tools: ''
-                    },
-              ],
-              count:2,
-             
-      };
-      this.state2 = 
-          {
-              data:
-              [
-                  {
-                  key: 0,
-                  num: 1,
-                  shirota: 555,
+            ],
+            count:2,
+           
+    },
+    state2 :
+        {
+            data:
+            [
+                {
+                key: 0,
+                num: 1,
+                shirota: 555,
+                dolgota: 32,
+                tools: ''
+                },
+                {
+                  key: 1,
+                  num: 2,
+                  shirota: 666,
                   dolgota: 32,
                   tools: ''
                   },
-                  {
-                    key: 1,
-                    num: 2,
-                    shirota: 666,
-                    dolgota: 32,
-                    tools: ''
-                    },
-              ],
-              count:2,
-              newData:`{
-                key: this.state2.count,
-                num: this.state2.count,
-                shirota: 33.5,
-                dolgota: 32,
-                tools: ''
-              }`
-            ,
+            ],
+            count:2,
+    }  ,
+      // current: 'gg',
+      // colomnRef: this.state.columns1,
+      // dataRef: this.state.state1.data,  
+      // newData: {
+      //   key: 0,
+      //   num: 0,
+      //   shirota: 33.5,
+      //   dolgota: 32,
+      //   flex: '',
+      //   tools: ''
+      // }, 
+
       };
-      this.state={
+      ref ={
         current: 'gg',
-        colomnRef: this.columns1,
-        dataRef: this.state1.data,  
+        colomnRef: this.state.columns1,
+        dataRef: this.state.state1.data,  
         newData: {
           key: 0,
           num: 0,
@@ -138,9 +139,11 @@ class TableCoord extends React.Component{
           dolgota: 32,
           flex: '',
           tools: ''
-        },      
-      };
-    }
+        },  
+      
+     };
+    
+    
         
       deleteRow = key =>{
         const dataSource = [...this.state.data];
@@ -150,32 +153,33 @@ class TableCoord extends React.Component{
         
     };
     addRow =() => { 
-      const count = this.state1.count;
-        if(this.state.current=='gg'){
-          // debugger;
-          console.log(this.state1);
+      
+        if(this.ref.current=='gg'){
+          //  debugger;
+          let newState = this.state.state1;
 
-          
-          const newState = this.state1;
-          
-          this.state.newData.key=count;
-          this.state.newData.num=count+1;
+          let newData = this.ref.newData;
+          newData.key= this.state.state1.count;
+          newData.num= this.state.state1.count+1;
 
-          
-          // console.log(newState.data)
-          newState.data.push(this.state.newData);
           newState.count+=1;
-          
+
+          newState.data.push(newData);
+
+         this.setState({
+          state1 : newState
+         })
+          console.log(newState)
 
           // const newData = Object.assign({},this.state1.newData);
           // console.log(newData)
           // this.setState({  data: [...data, newData],
           //   count: count+1}
           // );
-          this.state1= this.newState;
-          this.setState({ newState}
+           
+          
             // ()=>{console.log(this.state1)}
-          );
+        
           
           // console.log(this.state1.data);
           // console.log(this.state1.newData)
@@ -197,43 +201,41 @@ class TableCoord extends React.Component{
 
 
     handleClick = e => {
+      // debugger;
       this.state.current= e.key;
       // console.log(this.state.current)
 
-        if(this.state.current=='gg'){
-          this.setState({
-            colomnRef: this.columns1
-          });
-          this.setState({
-             dataRef: this.state1.data
-          });
+        if(this.ref.current=='gg'){
+          
+          this.setState({colomnRef: this.state.columns1,
+            dataRef: this.state.state1.data,
+          })
         }
 
-        else if(this.state.current=='mm'){
-          this.setState({
-            colomnRef: this.columns2
-          });
-          this.setState({
-             dataRef: this.state2.data
-          });
+        else if(this.ref.current=='mm'){
+        
+          this.setState({colomnRef: this.state.columns2,
+            dataRef: this.state.state2.data,
+          })
+         
         }
 
         else if(this.state.current=='az'){
-          this.setState({
-            colomnRef: this.columns2
-          });
-          this.setState({
-             dataRef: this.state2.data
-          });
+          this.setState({colomnRef: this.state.columns1,
+            dataRef: this.state.state1.data,
+          })
         }
 
         else if(this.state.current=='rum'){
-          this.setState({
-            colomnRef: this.columns2
-          });
-          this.setState({
-             dataRef: this.state2.data
-          });
+          this.setState({colomnRef: this.state.columns1,
+            dataRef: this.state.state1.data,
+          })
+          // this.setState({
+          //   colomnRef: this.columns2
+          // });
+          // this.setState({
+          //    dataRef: this.state2.data
+          // });
         }
 
       };
@@ -241,8 +243,8 @@ class TableCoord extends React.Component{
 
     render(){
         
-        let columnsR = this.state.colomnRef;
-        let dataR = this.state.dataRef;
+        let columnsR = this.ref.colomnRef;
+        let dataR = this.ref.dataRef;
         const columns = columnsR.map(col => {
                 if (!col.editable) {
                   return col;

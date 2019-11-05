@@ -18,6 +18,19 @@ code {
   float: left;
 }
 .main-form{
-  width: 48%;
+  /* width: 48%; */
+  /* float: left; */
+  margin-left: 10px;
+}
+.layout-main{
   float: left;
+  /* width: 100%; */
+}
+.layout-doc{
+  display: none;
+  /* width:49%; */
+}
+.main-window>div{
+  width: 98%;
+
 }

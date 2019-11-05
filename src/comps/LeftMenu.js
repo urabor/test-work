@@ -22,7 +22,7 @@ class LeftMenu extends React.Component{
   render(){
   return(
       <Sider trigger={null} collapsible collapsed={this.state.collapsed}
-      
+      style={{float: 'left'}}
       >
 
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
